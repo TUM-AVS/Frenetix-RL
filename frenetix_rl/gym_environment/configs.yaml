@@ -1,0 +1,130 @@
+# Default environment configurations
+# During execution, this will be read in by `frenetix_rl/gym_environment/commonroad_env.py`
+env_configs:
+
+  # training configurations
+  training_configs:
+    num_envs: 4
+    pick_random_agent: False
+    eval_freq: 10000 # gets multiplied by number of parallel environments (n_procs)
+    n_eval_episodes: 2
+    intermediate_model_save_feq: 10000 # gets multiplied by number of parallel environments (n_procs)
+    total_timesteps: 50000000
+
+  # action configuration
+  action_configs:
+    action_type: weights_and_sampling # discrete, continuous, weights and d_min, d_max, t
+    cost_terms: [
+      "lateral_jerk",
+      "longitudinal_jerk",
+      "distance_to_reference_path",
+      "velocity_offset",
+      ]
+    weight_low: 0.001
+    weight_high: 2.0
+    weight_update_low: -0.1
+    weight_update_high: 0.1
+    weight_prediction_low: 0.0
+    weight_prediction_high: 400.0
+    weight_prediction_update_low: -20.0
+    weight_prediction_update_high: 20.0
+    # sample_d_low: 2.0
+    # sample_d_high: 5.0
+    # sample_t_low: 0.5
+    # sample_level_low: 1
+    # sample_level_high: 3
+    evaluation: False
+
+  # Flatten observation into a vector for NN input
+  flatten_observation: True
+
+  # load new scenario if scenario loading takes longer than x seconds, set 0 for no timeout
+  load_scenario_timeout: 300
+
+  # timeout for multiprocessing queues
+  timeout_queue: 200
+
+  observation_configs:
+    # Ego-related observation flags and settings
+    ego_configs:
+      observe_v_ego: True
+      observe_a_ego: True
+      observe_jerk_lat_ego: False
+      observe_jerk_long_ego: False
+      observe_relative_orientation: True
+      observe_steering_angle: True
+      observe_yaw_rate: True
+      observe_lat_diff_ref_path: True
+
+    # Goal-related observation flags and settings
+    goal_configs:
+      observe_distance_goal: True
+      observe_remaining_steps: True
+      observe_is_goal_reached: True
+      observe_is_goal_reached_position: True
+      observe_is_goal_reached_velocity: True
+      observe_is_time_out: True
+      observe_difference_desired_velocity_to_goal: True
+
+    # Surrounding observation of vehicle in reactive planner
+    surrounding_configs:
+      observe_adjacent_lanes: True
+      observe_obstacles: True
+      observe_obstacle_amount: 5
+
+    # Cost function observations
+    cost_configs:
+      observe_cost_optimal_traj: True
+      observe_cost_mean: True
+      observe_cost_variance: True
+      observe_cost_predictions: True
+      observe_cost_distances: True
+      observe_current_weights: True
+
+    # trajectory bundle observation
+    trajectory_configs:
+      observe_feasible_percentage: True
+      observe_collision: True
+      observe_not_feasible: True
+      observe_ego_risk: True
+      observe_obstacle_risk: True
+
+  reward_type: hybrid_reward # hybrid_reward # p: sparse_reward
+  # Reward settings
+
+  # HYBRID REWARD
+  reward_configs:
+    dense_reward:
+      reward_feasible_percentage: 0.
+      reward_diff_ref_path: 0.
+      reward_action_inconsistency: 0.
+      reward_distance_to_goal_position_advance: 0.
+      reward_difference_target_velocity: -0.12
+      reward_risk_ego: -3000.
+      reward_risk_obst: -3000.
+      reward_jerk: 0.
+      cost_norm_difference: -0.1
+      cost_norm_difference_prediction: -0.0005
+
+    sparse_reward:
+      rate_scenario_solution: False
+      relative_reward: True
+      scenario_cost_function: 2 #WX1
+      reward_goal_reached_success: 1000.
+      reward_goal_reached_faster: 300.
+      reward_goal_reached_out_of_time: 300.
+      reward_collision: -10000.
+      reward_not_feasible: -8000.
+      reward_max_s_position: -8000.
+      reward_time_out: -8000.
+      reward_exception: -8000.
+
+
+  termination_configs:
+    # TERMINATIONS
+    ## Observation-related (effective only if corresponding observation available)
+    terminate_on_goal_reached: True
+    terminate_on_max_s_position: True
+    terminate_on_collision: True
+    terminate_on_infeasibility: True
+    terminate_on_time_out: True

@@ -1,0 +1,21 @@
+# Trajectory Debug Information
+save_all_traj: False
+save_unweighted_costs: False
+log_risk: True # Doesn't work for ground_truth prediction!
+draw_traj_set: True
+kinematic_debug: True
+
+# Collision Report Information
+collision_report: False
+
+# Logging of CSVs etc. should be activated
+activate_logging: False
+
+# Messages Logging
+# Options: NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL
+msg_log_mode: NOTSET
+
+# use multiprocessing True/False
+multiproc: False
+# number of workers for multiprocessing
+num_workers: 6

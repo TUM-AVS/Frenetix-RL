@@ -1,0 +1,19 @@
+# evalute solution of individual agents
+evaluate_agents: False
+#
+collision_report: False
+
+# Multiagent evaluation
+evaluate_simulation: False
+#
+# available measures in CriMe (Use=True, Ignore=False)
+criticality_metrics:
+    # Headway
+    HW: False
+    # Time to Collision
+    TTC: False
+    # Coll prob based on Monte Carlo Sampling
+    P_MC: False
+    #TODO tbc.
+
+evaluate_runtime: False
