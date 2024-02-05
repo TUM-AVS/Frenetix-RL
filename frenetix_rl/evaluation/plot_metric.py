@@ -32,10 +32,13 @@ def plot_metric(df, name, titel, show=False, save=True, save_tikz=False):
 
 
 if __name__ == '__main__':
-    path = "/media/alex/Windows-SSD/Uni/8. Semester/metrics/"
+    path = ""
 
-    name = ["approx_kl", "clip_fraction", "clip_range", "lr", "entropy", "eval_reward", "loss", "std", "value_loss", "variance", "gradient_loss"]
-    titel = ['Approximate KL Divergence', "Clip Fraction", "Clip Range", "Learning Rate", "Entropy", "Evaluation Reward", "Training Loss", "Standard Deviation", "Value Loss", "Explained Variance", "Policy Gradient Loss"]
+    name = ["approx_kl", "clip_fraction", "clip_range", "lr", "entropy", "eval_reward", "loss", "std", "value_loss",
+            "variance", "gradient_loss"]
+    titel = ['Approximate KL Divergence', "Clip Fraction", "Clip Range", "Learning Rate", "Entropy",
+             "Evaluation Reward", "Training Loss", "Standard Deviation", "Value Loss", "Explained Variance",
+             "Policy Gradient Loss"]
 
     for number in range(len(name)):
         df = pd.read_csv(path+name[number]+".csv")

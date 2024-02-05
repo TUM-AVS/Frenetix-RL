@@ -46,15 +46,12 @@ def plot_scenario(dfs, column, scenario_name, show=False, save=True, save_tikz=F
     axes[0].set(xlabel="Timesteps (in 0.1s)")
     axes[0].set(ylabel=column.replace("_", " ").title())
 
-
     # plot differences
     min_len = min(len(data[0]), len(data[1]))
     max_len = max(len(data[0]), len(data[1]))
     axes[1].plot(data[0][:min_len]-data[1][:min_len], color="#005293")
     axes[1].set(xlabel="Timesteps (in 0.1s)")
     axes[1].set(ylabel="Difference")
-
-
 
     # save figures
     save_path = mod_path + "/evaluation/plots/qualitative_plots/" + scenario_name

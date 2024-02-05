@@ -197,8 +197,7 @@ def plot_trajectory_cost(scenario_path, scenario_name, log_path, action_log_path
     # render scenario and occupancies
     rnd.render()
 
-    plt.savefig("/media/alex/Windows-SSD/Uni/9. Semester/frenetix-rl/evaluation/" + str(scenario_name) + "_trajectory_cost.svg", format='svg',
-                    bbox_inches='tight')
+    plt.show()
 
 
 def plot_trajectory_top_risk(scenario_path, scenario_name, log_path, action_log_path, plot_window=20, n=10):
@@ -263,7 +262,6 @@ def plot_trajectory_top_risk(scenario_path, scenario_name, log_path, action_log_
         occ_params.edgecolor = "#000000"
         occ_pos.draw(rnd, draw_params=occ_params)
 
-
     # visualize occupancies of trajectory
     for i in range(0, min(len(data), len(normalizedData))):
         # state = agent.record_state_list[i]
@@ -272,8 +270,8 @@ def plot_trajectory_top_risk(scenario_path, scenario_name, log_path, action_log_
                             orientation=float(data.iloc[i]["theta_orientations_rad"].split(",")[0]))
 
         # get color for heatmap
-        #print(normalizedData[i])
-        #color = colors[normalizedData[i]]
+        # print(normalizedData[i])
+        # color = colors[normalizedData[i]]
         print(i, i in color_data)
         if i in color_data:
             color = "#E37222"
@@ -286,6 +284,5 @@ def plot_trajectory_top_risk(scenario_path, scenario_name, log_path, action_log_
     # render scenario and occupancies
     rnd.render()
 
-    plt.savefig("/media/alex/Windows-SSD/Uni/9. Semester/frenetix-rl/evaluation/" + str(scenario_name) + "_top_risk.svg", format='svg',
-                    bbox_inches='tight')
+    plt.show()
 

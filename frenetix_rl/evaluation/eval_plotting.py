@@ -41,7 +41,7 @@ def box_plot(dfs, column, show=False, showoutlier=False, save=True, save_tikz=Fa
         import matplotlib.patches as mpatches
         handles.append(mpatches.Patch(color=colors[i], label=keys[i]))
     ax.legend(keys, handles=handles, bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",
-                mode="expand", borderaxespad=0, ncol=3, frameon=False)
+              mode="expand", borderaxespad=0, ncol=3, frameon=False)
     plt.ylabel(column.replace("_", " ").title().replace("Obst", "Obstacle").replace("Std", "Standard Deviation"))
 
     # save figures

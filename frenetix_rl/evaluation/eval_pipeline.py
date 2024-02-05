@@ -101,16 +101,15 @@ def run_and_log_scenario_rlplanner(scenario_path, model_path, timeout_scenario_m
 
 
 if __name__ == '__main__':
-    path_scenarios = "/media/alex/Windows-SSD/Uni/9. Semester/failed/test"
+    path_scenarios = ""
 
     model_path = mod_path + "/logs/best_model/best_model"
-    model_path = "/media/alex/Windows-SSD/Uni/9. Semester/2024-01-02/run_187/best_model/best_model.zip"
 
-    path_standard_planner = "/media/alex/Windows-SSD/Uni/9. Semester/StandardPlanner/"
+    path_standard_planner = ""
 
     evaluation = Evaluator("RLPlanner1", EvalType.RLPlanner)
     # Enable if one wants to create baseline with Standard planner
-    #evaluation = Evaluator("StandardPlanner", EvalType.StandardPlanner)
+    # evaluation = Evaluator("StandardPlanner", EvalType.StandardPlanner)
     create_logs = False
 
     # ***************************************************
@@ -144,7 +143,9 @@ if __name__ == '__main__':
         os.makedirs(quantitative_path)
     paths_to_plot = {"Hybrid Planner":  mod_path + "/evaluation/RLPlanner1_evaluation.csv",
                      "Default Planner": path_standard_planner + "StandardPlanner_evaluation.csv"}
-    columns_to_boxplot = ["mean_ego_risk", "mean_top_ego_risk", "mean_obst_risk", "mean_top_obst_risk", "max_ego_risk", "max_obst_risk", "mean_diff_to_ref_path", "std_obst_risk", "std_ego_risk", "mean_percentage_feasible_traj"]
+    columns_to_boxplot = ["mean_ego_risk", "mean_top_ego_risk", "mean_obst_risk", "mean_top_obst_risk", "max_ego_risk",
+                          "max_obst_risk", "mean_diff_to_ref_path", "std_obst_risk", "std_ego_risk",
+                          "mean_percentage_feasible_traj"]
 
     dfs = {}
     for key, path in paths_to_plot.items():
@@ -163,10 +164,9 @@ if __name__ == '__main__':
     # ***************************************************
     for scenario_name in ["ZAM_Tjunction-1_14_T-1", "ZAM_Tjunction-1_86_T-1"]:
         scenario_path = path_scenarios + "/" + scenario_name + ".xml"
-        #log_path = run_and_log_scenario_rlplanner(scenario_path, model_path, evaluate=True)
 
         paths_to_plot = {"Hybrid Planner": mod_path + "/evaluation/logs/" + scenario_name,
-            "Default Planner": path_standard_planner + scenario_name}
+                         "Default Planner": path_standard_planner + scenario_name}
 
         dfs = {}
         for key, path in paths_to_plot.items():
