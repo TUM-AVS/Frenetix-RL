@@ -1,6 +1,7 @@
+[![DOI](https://zenodo.org/badge/676952944.svg)](https://zenodo.org/doi/10.5281/zenodo.10618648)
+
 [![Linux](https://img.shields.io/badge/os-linux-blue.svg)](https://www.linux.org/)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/) [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-
 
 # Frenetix-RL
 
@@ -96,16 +97,28 @@ Germany
 <summary> <h2> 📃 Citation </h2> </summary>
    
 If you use this repository for any academic work, please cite our code:
+- [RL-Paper](https://arxiv.org/abs/2402.01465)
+- [Analytical Planner Paper](https://arxiv.org/abs/2402.01443)
 
 ```bibtex
-@misc{GitHubRepo,
-  author = {Rainer Trauth},
-  title = {Frenetix RL},
-  year = {2023},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  doi = {10.5281/zenodo.10078062},
-  url = {https://github.com/TUM-AVS/Frenetix-RL}
+@misc{trauth2024reinforcement,
+      title={A Reinforcement Learning-Boosted Motion Planning Framework: Comprehensive Generalization Performance in Autonomous Driving}, 
+      author={Rainer Trauth and Alexander Hobmeier and Johannes Betz},
+      year={2024},
+      eprint={2402.01465},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}
+```
+
+```bibtex
+@misc{frenetix2024,
+      title={Frenetix Motion Planner: High-Performance and Modular Trajectory Planning Algorithm for Complex Autonomous Driving Scenarios}, 
+      author={Korbinian Moller and Rainer Trauth and Gerald Wuersching and Johannes Betz},
+      year={2024},
+      eprint={2402.01443},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
 }
 ```
 </details>
