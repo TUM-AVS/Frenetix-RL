@@ -20,11 +20,11 @@ packages = [
 python = ">=3.9,<3.11"
 
 # internal, will be resolved when we publish it.
-frenetix-motion-planner = "^2024.1"
+frenetix-motion-planner = "==2024.1"
 commonroad-route-planner = "^2022.3"
 commonroad-drivability-checker = "^2023.1"
 
-frenetix = "^0.1.3"
+frenetix = "==0.1.3"
 
 numpy = "^1.24.2"
 omegaconf = "^2.1.1"

@@ -12,7 +12,7 @@ The Repo provides a python-based and a C++-accelerated Motion Planner [Frenetix]
 
 ### Requirements
 The software is  developed and tested on recent versions of Linux. We strongly recommend to use [Ubuntu 22.04](https://ubuntu.com/download/desktop) or higher.
-For the python installation, we suggest the usage of Virtual Environment with Python 3.10 or Python 3.9
+For the python installation, we suggest the usage of a Virtual Environment with Python 3.10 or Python 3.9.
 For the development IDE we suggest [PyCharm](http://www.jetbrains.com/pycharm/)
 
 
@@ -26,7 +26,7 @@ Make sure that the following **dependencies** are installed on your system for t
      * On Ubuntu: `sudo apt-get install libboost-all-dev`
    * [OpenMP](https://www.openmp.org/) 
      * On Ubuntu: `sudo apt-get install libomp-dev`
-   * [python3.11-full](https://packages.ubuntu.com/jammy/python3.10-full) 
+   * [python3.10-full](https://packages.ubuntu.com/jammy/python3.10-full) 
         * On Ubuntu: `sudo apt-get install python3.10-full` and `sudo apt-get install python3.10-dev`
 
 </details>
@@ -41,12 +41,12 @@ Make sure that the following **dependencies** are installed on your system for t
 
 4. **Optional change** of configurations in the following files & folders:
    1. `configurations` --> Analytic planner configs
-   2. `frenetix-rl/gym_environment/congigs.yaml` --> RL training environment config
+   2. `frenetix-rl/gym_environment/configs.yaml` --> RL training environment config
    3. `frenetix-rl/hyperparams/ppo2.yml` --> PPO hyperparameter settings
 
 5. There is already a best_model to execute if you do not want to train one by yourself. Skip step 6 to skip the training procedure.
 6. **Start Training**  with `python3 train.py`
-7. **Logs** can be found in the `logs` folder. **tensorboard_logs** can be found in the `logs_tensorboard` folder. If you want to visualize them, install tensorboard with `pip` and execute `tensorboard --logdir logs_tensorboard/PPO_1/`. 
+7. **Logs** can be found in the `logs` folder. **tensorboard_logs** can be found in the `logs_tensorboard` folder. If you want to visualize them, install tensorboard with `pip install tensorboard` and execute `tensorboard --logdir logs_tensorboard/PPO_1/`. 
 8. **Execution** of the trained model can be done with `python3 execute.py`. The **plot** visualizations of the executed model will be saved in `logs` again.
 
 <details>
@@ -62,7 +62,7 @@ Load the files and add them to `scenarios` for training data or `scenarios_valid
 
 Detailed documentation of the functionality behind the single modules can be found below.
 
-1. [General Planning Algorithm](README.md)
+1. [General RL Algorithm](README.md)
 
 2. [Frenetix Motion Planner](https://github.com/TUM-AVS/Frenetix-Motion-Planner)
 

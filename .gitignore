@@ -1,3 +1,5 @@
 **/__pycache__/**
 .idea
-venv
+venv/
+logs/
+logs_tensorboard/
